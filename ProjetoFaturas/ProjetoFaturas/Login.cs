@@ -13,6 +13,7 @@ namespace ProjetoFaturas
 {
     public partial class Login : Form
     {
+        public static string stringConnection = @"Server=tcp:UED1311\SQLEXPRESS;Database=outonoDB;User Id=sa;Password=Pa$$w0rd";
         public Login()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace ProjetoFaturas
             {
                 new Gerente().Show();
                 this.Hide();
+                
             }
             else
             {
