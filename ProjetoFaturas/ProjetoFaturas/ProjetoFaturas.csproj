@@ -79,6 +79,12 @@
     <Compile Include="Gerente.Designer.cs">
       <DependentUpon>Gerente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ler.Designer.cs">
+      <DependentUpon>Ler.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Gerente.resx">
       <DependentUpon>Gerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ler.resx">
+      <DependentUpon>Ler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

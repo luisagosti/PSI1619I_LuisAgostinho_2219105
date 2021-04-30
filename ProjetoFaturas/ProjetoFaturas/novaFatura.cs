@@ -31,9 +31,12 @@ namespace ProjetoFaturas
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox6.Text == "" || textBox8.Text == "")
             {
-
+                MessageBox.Show(" Alguns campos não estão completos.", " Erro! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
@@ -48,10 +51,8 @@ namespace ProjetoFaturas
                     sqlCmd.Parameters.AddWithValue("@Data", dateTimePicker1.Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@Montante", textBox8.Text.Trim());
                     sqlCmd.ExecuteNonQuery();
-
+                    MessageBox.Show(" Emitida com sucesso.", " Sucesso! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-
             }
         }
         private void button2_Click(object sender, EventArgs e)
@@ -140,7 +141,7 @@ namespace ProjetoFaturas
             {
                 foreach (Control control in controls)
                     if (control is TextBox)
-                        (control as TextBox).Clear();
+                       (control as TextBox).Clear();
                     else
                         func(control.Controls);
             };

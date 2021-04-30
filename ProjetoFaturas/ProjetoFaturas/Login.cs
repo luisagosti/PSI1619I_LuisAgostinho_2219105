@@ -72,8 +72,7 @@ namespace ProjetoFaturas
                 Gerente.Show();
 
             }
-            else
-                MessageBox.Show(result);
+            
         }
     
 
