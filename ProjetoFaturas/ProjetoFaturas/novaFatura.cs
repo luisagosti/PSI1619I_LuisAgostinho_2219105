@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProjetoFaturas
 {
+    
     public partial class novaFatura : Form
     {
+        string connectionString = @"Server=tcp:devlabpm.westeurope.cloudapp.azure.com;Database=PSIM1619I_LuisAgostinho_2219105;User Id=PSIM1619I_LuisAgostinho_2219105;Password=6qA8C127";
         public novaFatura()
         {
             InitializeComponent();
@@ -27,12 +30,30 @@ namespace ProjetoFaturas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(ValidateChildren(ValidationConstraints.Enabled))
+
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                //sql sdicionar na bd
+
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    SqlCommand sqlCmd = new SqlCommand("novaFatura", sqlCon);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("@Nome", textBox1.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Morada", textBox2.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Telefone", textBox3.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Descricao", textBox4.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Equipamento", textBox5.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Password", textBox6.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Data", dateTimePicker1.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Montante", textBox8.Text.Trim());
+                    sqlCmd.ExecuteNonQuery();
+
+                }
+
+
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))

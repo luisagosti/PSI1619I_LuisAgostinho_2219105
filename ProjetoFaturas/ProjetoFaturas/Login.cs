@@ -13,7 +13,12 @@ namespace ProjetoFaturas
 {
     public partial class Login : Form
     {
-        public static string stringConnection = @"Server=tcp:UED1311\SQLEXPRESS;Database=outonoDB;User Id=sa;Password=Pa$$w0rd";
+        public string UserID = "";
+
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader reader;
+        //public static string stringConnection = @"Server=tcp:devlabpm.westeurope.cloudapp.azure.com;Database=PSIM1619I_LuisAgostinho_2219105;User Id=PSIM1619I_LuisAgostinho_2219105;Password=6qA8C127";
         public Login()
         {
             InitializeComponent();
@@ -26,24 +31,51 @@ namespace ProjetoFaturas
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "user" && maskedTextBox1.Text == "123")
+            String result = "";
+            try
             {
-                new Empregado().Show();
-                this.Hide();
+                con = new SqlConnection(@"Server=tcp:devlabpm.westeurope.cloudapp.azure.com;Database=PSIM1619I_LuisAgostinho_2219105;User Id=PSIM1619I_LuisAgostinho_2219105;Password=6qA8C127");
+                cmd = new SqlCommand("select * from login where UserId=@uid and Password=@password", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@uid", textBox1.Text.ToString());
+                cmd.Parameters.AddWithValue("@password", maskedTextBox1.Text.ToString());
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    if (reader["Password"].ToString().Equals(maskedTextBox1.Text.ToString(), StringComparison.InvariantCulture))
+                    {
+                        UserID = reader["UserId"].ToString();
+                        result = "1";
+                    }
+                    else
+                        result = "Invalid credentials";
+                }
+                else
+                    MessageBox.Show(" Utilizador/Password errado.", " Erro! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox1.Clear();
+                    maskedTextBox1.Clear();
+                    reader.Close();
+                    cmd.Dispose();
+                    con.Close();
+
             }
-            else if(textBox1.Text == "admin" && maskedTextBox1.Text == "321")
+            catch (Exception ex)
             {
-                new Gerente().Show();
-                this.Hide();
                 
             }
-            else
+
+            if (result == "1")
             {
-                MessageBox.Show(" Utilizador/Password errado.", " Erro! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox1.Clear();
-                maskedTextBox1.Clear();
+                this.Hide();
+                var Gerente = new Gerente();
+                Gerente.Closed += (s, args) => this.Close();
+                Gerente.Show();
+
             }
+            else
+                MessageBox.Show(result);
         }
+    
 
         private void label2_Click(object sender, EventArgs e)
         {
