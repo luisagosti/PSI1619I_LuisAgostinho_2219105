@@ -38,13 +38,13 @@ namespace ProjetoFaturas
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.Nome = new System.Windows.Forms.TextBox();
+            this.Morada = new System.Windows.Forms.TextBox();
+            this.Telefone = new System.Windows.Forms.TextBox();
+            this.Descricao = new System.Windows.Forms.TextBox();
+            this.Equipamento = new System.Windows.Forms.TextBox();
+            this.Password = new System.Windows.Forms.TextBox();
+            this.Guito = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -141,72 +141,73 @@ namespace ProjetoFaturas
             this.label8.TabIndex = 7;
             this.label8.Text = "Montante a pagar:";
             // 
-            // textBox1
+            // Nome
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(17, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(554, 27);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            this.Nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nome.Location = new System.Drawing.Point(17, 38);
+            this.Nome.Name = "Nome";
+            this.Nome.Size = new System.Drawing.Size(554, 27);
+            this.Nome.TabIndex = 8;
+            this.Nome.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Nome.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
             // 
-            // textBox2
+            // Morada
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(17, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(554, 27);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
+            this.Morada.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Morada.Location = new System.Drawing.Point(17, 97);
+            this.Morada.Name = "Morada";
+            this.Morada.Size = new System.Drawing.Size(554, 27);
+            this.Morada.TabIndex = 9;
+            this.Morada.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
             // 
-            // textBox3
+            // Telefone
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(17, 152);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(554, 27);
-            this.textBox3.TabIndex = 10;
-            this.textBox3.Validating += new System.ComponentModel.CancelEventHandler(this.textBox3_Validating);
+            this.Telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Telefone.Location = new System.Drawing.Point(17, 152);
+            this.Telefone.Name = "Telefone";
+            this.Telefone.Size = new System.Drawing.Size(554, 27);
+            this.Telefone.TabIndex = 10;
+            this.Telefone.Validating += new System.ComponentModel.CancelEventHandler(this.textBox3_Validating);
             // 
-            // textBox4
+            // Descricao
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(17, 207);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(554, 100);
-            this.textBox4.TabIndex = 11;
-            this.textBox4.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
+            this.Descricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Descricao.Location = new System.Drawing.Point(17, 207);
+            this.Descricao.Multiline = true;
+            this.Descricao.Name = "Descricao";
+            this.Descricao.Size = new System.Drawing.Size(554, 100);
+            this.Descricao.TabIndex = 11;
+            this.Descricao.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
             // 
-            // textBox5
+            // Equipamento
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(17, 335);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(554, 83);
-            this.textBox5.TabIndex = 12;
+            this.Equipamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Equipamento.Location = new System.Drawing.Point(17, 335);
+            this.Equipamento.Multiline = true;
+            this.Equipamento.Name = "Equipamento";
+            this.Equipamento.Size = new System.Drawing.Size(554, 83);
+            this.Equipamento.TabIndex = 12;
             // 
-            // textBox6
+            // Password
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(17, 446);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(554, 27);
-            this.textBox6.TabIndex = 13;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            this.textBox6.Validating += new System.ComponentModel.CancelEventHandler(this.textBox6_Validating);
+            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Password.Location = new System.Drawing.Point(17, 446);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(554, 27);
+            this.Password.TabIndex = 13;
+            this.Password.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.Password.Validating += new System.ComponentModel.CancelEventHandler(this.textBox6_Validating);
             // 
-            // textBox8
+            // Guito
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(16, 557);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(555, 27);
-            this.textBox8.TabIndex = 15;
-            this.textBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox8_KeyDown);
-            this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
-            this.textBox8.Validating += new System.ComponentModel.CancelEventHandler(this.textBox8_Validating);
+            this.Guito.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Guito.Location = new System.Drawing.Point(16, 557);
+            this.Guito.Name = "Guito";
+            this.Guito.Size = new System.Drawing.Size(555, 27);
+            this.Guito.TabIndex = 15;
+            this.Guito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox8_KeyDown);
+            this.Guito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
+            this.Guito.Validating += new System.ComponentModel.CancelEventHandler(this.textBox8_Validating);
             // 
             // button1
             // 
@@ -277,13 +278,13 @@ namespace ProjetoFaturas
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Guito);
+            this.Controls.Add(this.Password);
+            this.Controls.Add(this.Equipamento);
+            this.Controls.Add(this.Descricao);
+            this.Controls.Add(this.Telefone);
+            this.Controls.Add(this.Morada);
+            this.Controls.Add(this.Nome);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -311,13 +312,13 @@ namespace ProjetoFaturas
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox Nome;
+        private System.Windows.Forms.TextBox Morada;
+        private System.Windows.Forms.TextBox Telefone;
+        private System.Windows.Forms.TextBox Descricao;
+        private System.Windows.Forms.TextBox Equipamento;
+        private System.Windows.Forms.TextBox Password;
+        private System.Windows.Forms.TextBox Guito;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;

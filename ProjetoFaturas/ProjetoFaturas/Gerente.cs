@@ -41,5 +41,25 @@ namespace ProjetoFaturas
         {
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bool aberto = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Ler")
+                {
+                    aberto = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+            if (aberto == false)
+            {
+                Ler nova = new Ler();
+                nova.MdiParent = this;
+                nova.Show();
+            }
+        }
     }
 }

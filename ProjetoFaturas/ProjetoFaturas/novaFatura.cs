@@ -14,6 +14,7 @@ namespace ProjetoFaturas
     
     public partial class novaFatura : Form
     {
+        int i;
         string connectionString = @"Server=tcp:devlabpm.westeurope.cloudapp.azure.com;Database=PSIM1619I_LuisAgostinho_2219105;User Id=PSIM1619I_LuisAgostinho_2219105;Password=6qA8C127";
         public novaFatura()
         {
@@ -22,18 +23,18 @@ namespace ProjetoFaturas
 
         private void textBox1_Validating(object sender, CancelEventArgs e)
         {
-            if(string.IsNullOrEmpty(textBox1.Text))
+            if(string.IsNullOrEmpty(Nome.Text) || int.TryParse(Nome.Text, out i))
             {
-                errorProvider1.SetError(textBox1, "Este campo não pode ficar vazio");
+                errorProvider1.SetError(Nome, "Este campo não pode ficar vazio");
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox6.Text == "" || textBox8.Text == "")
+            if (Nome.Text == "" || Nome.Text.All(char.IsDigit) || Morada.Text == "" || Morada.Text.All(char.IsDigit) || Telefone.Text == "" || Telefone.Text.All(char.IsDigit) || Descricao.Text == "" || Descricao.Text.All(char.IsDigit) || Password.Text == "" || Password.Text.All(char.IsDigit) || Guito.Text == "" || Guito.Text.All(char.IsDigit))
             {
-                MessageBox.Show(" Alguns campos não estão completos.", " Erro! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(" Alguns campos não estão completos ou são inválidos.", " Erro! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -42,14 +43,14 @@ namespace ProjetoFaturas
                     sqlCon.Open();
                     SqlCommand sqlCmd = new SqlCommand("novaFatura", sqlCon);
                     sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("@Nome", textBox1.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Morada", textBox2.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Telefone", textBox3.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Descricao", textBox4.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Equipamento", textBox5.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Password", textBox6.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Nome", Nome.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Morada", Morada.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Telefone", Telefone.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Descricao", Descricao.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Equipamento", Equipamento.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Password", Password.Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@Data", dateTimePicker1.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Montante", textBox8.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Montante", Guito.Text.Trim());
                     sqlCmd.ExecuteNonQuery();
                     MessageBox.Show(" Emitida com sucesso.", " Sucesso! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -82,33 +83,33 @@ namespace ProjetoFaturas
 
         private void textBox2_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox2.Text))
+            if (string.IsNullOrEmpty(Morada.Text) || int.TryParse(Morada.Text, out i))
             {
-                errorProvider1.SetError(textBox2, "Este campo não pode ficar vazio");
+                errorProvider1.SetError(Morada, "Este campo não pode ficar vazio ou conter numeros");
             }
         }
 
         private void textBox3_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox3.Text))
+            if (string.IsNullOrEmpty(Telefone.Text))
             {
-                errorProvider1.SetError(textBox3, "Este campo não pode ficar vazio");
+                errorProvider1.SetError(Telefone, "Este campo não pode ficar vazio");
             }
         }
 
         private void textBox4_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox4.Text))
+            if (string.IsNullOrEmpty(Descricao.Text))
             {
-                errorProvider1.SetError(textBox4, "Este campo não pode ficar vazio");
+                errorProvider1.SetError(Descricao, "Este campo não pode ficar vazio");
             }
         }
 
         private void textBox6_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox6.Text))
+            if (string.IsNullOrEmpty(Password.Text))
             {
-                errorProvider1.SetError(textBox6, "Este campo não pode ficar vazio");
+                errorProvider1.SetError(Password, "Este campo não pode ficar vazio");
             }
         }
 
@@ -122,9 +123,9 @@ namespace ProjetoFaturas
 
         private void textBox8_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox8.Text))
+            if (string.IsNullOrEmpty(Guito.Text))
             {
-                errorProvider1.SetError(textBox8, "Este campo não pode ficar vazio");
+                errorProvider1.SetError(Guito, "Este campo não pode ficar vazio");
             }
         }
 
@@ -147,6 +148,11 @@ namespace ProjetoFaturas
             };
 
             func(Controls);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

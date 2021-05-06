@@ -16,7 +16,7 @@ namespace ProjetoFaturas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Ler());
+            Application.Run(new Login());
         }
     }
 }
