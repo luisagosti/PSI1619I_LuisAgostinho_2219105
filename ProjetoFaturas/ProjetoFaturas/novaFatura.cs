@@ -32,7 +32,7 @@ namespace ProjetoFaturas
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (Nome.Text == "" || Nome.Text.All(char.IsDigit) || Morada.Text == "" || Morada.Text.All(char.IsDigit) || Telefone.Text == "" || Telefone.Text.All(char.IsDigit) || Descricao.Text == "" || Descricao.Text.All(char.IsDigit) || Password.Text == "" || Password.Text.All(char.IsDigit) || Guito.Text == "" || Guito.Text.All(char.IsDigit))
+            if (Nome.Text == "" || Morada.Text == "" || Telefone.Text == "" || Descricao.Text == "" || Password.Text == "" || Guito.Text == "")
             {
                 MessageBox.Show(" Alguns campos não estão completos ou são inválidos.", " Erro! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

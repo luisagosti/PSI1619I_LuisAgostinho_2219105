@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editar.Designer.cs">
+      <DependentUpon>Editar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gerente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Editar.resx">
+      <DependentUpon>Editar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gerente.resx">
       <DependentUpon>Gerente.cs</DependentUpon>
     </EmbeddedResource>

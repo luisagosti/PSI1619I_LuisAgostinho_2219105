@@ -42,6 +42,7 @@ namespace ProjetoFaturas
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 167);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(572, 505);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -64,6 +65,7 @@ namespace ProjetoFaturas
             this.textBox1.Size = new System.Drawing.Size(572, 27);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // Ler
             // 

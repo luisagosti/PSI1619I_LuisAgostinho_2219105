@@ -32,7 +32,11 @@ namespace ProjetoFaturas
             if (aberto == false)
             {
                 novaFatura nova = new novaFatura();
+                Editar novaEditar = new Editar();
+                Ler novaLer = new Ler();
                 nova.MdiParent = this;
+                novaEditar.Close();
+                novaLer.Close();
                 nova.Show();
             }
         }
@@ -57,6 +61,32 @@ namespace ProjetoFaturas
             if (aberto == false)
             {
                 Ler nova = new Ler();
+                novaFatura novaNova = new novaFatura();
+                Editar novaEditar = new Editar();
+                nova.MdiParent = this;
+                novaNova.Close();
+                novaEditar.Close();
+                nova.Show();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            bool aberto = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Editar")
+                {
+                    aberto = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+            if (aberto == false)
+            {
+                Editar nova = new Editar();
+                novaFatura novaNova = new novaFatura();
+                Ler novaLer = new Ler();
                 nova.MdiParent = this;
                 nova.Show();
             }

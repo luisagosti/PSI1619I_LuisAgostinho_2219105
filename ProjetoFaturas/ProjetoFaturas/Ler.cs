@@ -55,6 +55,11 @@ namespace ProjetoFaturas
             }
             dataGridView1.DataSource = dt;
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }
 
@@ -83,3 +88,4 @@ comboBox1.ValueMember = "ColumnName";
 comboBox1.DisplayMember = "ColumnName";*/
 
 //SqlDataAdapter sda = new SqlDataAdapter("select * from fatura where CONCAT('Nome', 'Morada', 'Telefone', 'Equipamento', 'Password', 'Data', 'Montante') like '" + textBox1.Text+"%'", con);
+//"select * from fatura where '" + textBox1.Text + "' in (Nome, Morada, Telefone, Descricao, Equipamento, Password, Montante) order by Nome"
