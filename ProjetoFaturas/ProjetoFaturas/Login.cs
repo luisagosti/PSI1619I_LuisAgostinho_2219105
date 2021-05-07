@@ -67,7 +67,7 @@ namespace ProjetoFaturas
             if (result == "1")
             {
                 this.Hide();
-                var Gerente = new Gerente();
+                var Gerente = new Painel();
                 Gerente.Closed += (s, args) => this.Close();
                 Gerente.Show();
 

@@ -1,7 +1,7 @@
 ﻿
 namespace ProjetoFaturas
 {
-    partial class Gerente
+    partial class Painel
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,9 @@ namespace ProjetoFaturas
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.editarFatura = new System.Windows.Forms.Button();
+            this.lerFatura = new System.Windows.Forms.Button();
+            this.novaFatura = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,9 +42,9 @@ namespace ProjetoFaturas
             this.panel1.BackColor = System.Drawing.Color.SandyBrown;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.editarFatura);
+            this.panel1.Controls.Add(this.lerFatura);
+            this.panel1.Controls.Add(this.novaFatura);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -66,49 +66,49 @@ namespace ProjetoFaturas
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // editarFatura
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(-10, 391);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(235, 84);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Editar Fatura";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.editarFatura.FlatAppearance.BorderSize = 0;
+            this.editarFatura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editarFatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editarFatura.ForeColor = System.Drawing.Color.White;
+            this.editarFatura.Location = new System.Drawing.Point(-10, 391);
+            this.editarFatura.Name = "editarFatura";
+            this.editarFatura.Size = new System.Drawing.Size(235, 84);
+            this.editarFatura.TabIndex = 2;
+            this.editarFatura.Text = "Editar Fatura";
+            this.editarFatura.UseVisualStyleBackColor = true;
+            this.editarFatura.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // lerFatura
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(-10, 270);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(235, 84);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Ler Fatura";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.lerFatura.FlatAppearance.BorderSize = 0;
+            this.lerFatura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lerFatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lerFatura.ForeColor = System.Drawing.Color.White;
+            this.lerFatura.Location = new System.Drawing.Point(-10, 270);
+            this.lerFatura.Name = "lerFatura";
+            this.lerFatura.Size = new System.Drawing.Size(235, 84);
+            this.lerFatura.TabIndex = 1;
+            this.lerFatura.Text = "Ler Fatura";
+            this.lerFatura.UseVisualStyleBackColor = true;
+            this.lerFatura.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // novaFatura
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(-10, 148);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 84);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Nova Fatura";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.novaFatura.FlatAppearance.BorderSize = 0;
+            this.novaFatura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.novaFatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novaFatura.ForeColor = System.Drawing.Color.White;
+            this.novaFatura.Location = new System.Drawing.Point(-10, 148);
+            this.novaFatura.Name = "novaFatura";
+            this.novaFatura.Size = new System.Drawing.Size(235, 84);
+            this.novaFatura.TabIndex = 0;
+            this.novaFatura.Text = "Nova Fatura";
+            this.novaFatura.UseVisualStyleBackColor = true;
+            this.novaFatura.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Gerente
+            // Painel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -116,7 +116,7 @@ namespace ProjetoFaturas
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
-            this.Name = "Gerente";
+            this.Name = "Painel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Outono - Faturação";
             this.panel1.ResumeLayout(false);
@@ -127,9 +127,9 @@ namespace ProjetoFaturas
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button novaFatura;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button editarFatura;
+        private System.Windows.Forms.Button lerFatura;
     }
 }

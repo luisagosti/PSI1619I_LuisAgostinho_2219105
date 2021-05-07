@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace ProjetoFaturas
 {
-    public partial class Gerente : Form
+    public partial class Painel : Form
     {
-        public Gerente()
+        string con = @"Server=tcp:devlabpm.westeurope.cloudapp.azure.com;Database=PSIM1619I_LuisAgostinho_2219105;User Id=PSIM1619I_LuisAgostinho_2219105;Password=6qA8C127";
+        public Painel()
         {
             InitializeComponent();
         }
@@ -72,6 +73,7 @@ namespace ProjetoFaturas
 
         private void button3_Click(object sender, EventArgs e)
         {
+            SqlConnection sqlconn = new SqlConnection(con);
             bool aberto = false;
             foreach (Form f in Application.OpenForms)
             {

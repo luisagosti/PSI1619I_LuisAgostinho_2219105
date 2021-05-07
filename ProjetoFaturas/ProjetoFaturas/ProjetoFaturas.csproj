@@ -79,11 +79,11 @@
     <Compile Include="Editar.Designer.cs">
       <DependentUpon>Editar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gerente.cs">
+    <Compile Include="Painel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gerente.Designer.cs">
-      <DependentUpon>Gerente.cs</DependentUpon>
+    <Compile Include="Painel.Designer.cs">
+      <DependentUpon>Painel.cs</DependentUpon>
     </Compile>
     <Compile Include="Ler.cs">
       <SubType>Form</SubType>
@@ -97,12 +97,6 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Empregado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Empregado.Designer.cs">
-      <DependentUpon>Empregado.cs</DependentUpon>
-    </Compile>
     <Compile Include="novaFatura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,17 +108,14 @@
     <EmbeddedResource Include="Editar.resx">
       <DependentUpon>Editar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gerente.resx">
-      <DependentUpon>Gerente.cs</DependentUpon>
+    <EmbeddedResource Include="Painel.resx">
+      <DependentUpon>Painel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ler.resx">
       <DependentUpon>Ler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Empregado.resx">
-      <DependentUpon>Empregado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="novaFatura.resx">
       <DependentUpon>novaFatura.cs</DependentUpon>
