@@ -46,23 +46,25 @@ namespace ProjetoFaturas
             this.panel1.Controls.Add(this.lerFatura);
             this.panel1.Controls.Add(this.novaFatura);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(218, 688);
+            this.panel1.Size = new System.Drawing.Size(136, 688);
             this.panel1.TabIndex = 3;
             // 
             // button4
             // 
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(-10, 511);
+            this.button4.Location = new System.Drawing.Point(-1, 641);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(235, 84);
+            this.button4.Size = new System.Drawing.Size(136, 42);
             this.button4.TabIndex = 3;
             this.button4.Text = "Sair";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -70,13 +72,14 @@ namespace ProjetoFaturas
             // 
             this.editarFatura.FlatAppearance.BorderSize = 0;
             this.editarFatura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editarFatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editarFatura.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editarFatura.ForeColor = System.Drawing.Color.White;
-            this.editarFatura.Location = new System.Drawing.Point(-10, 391);
+            this.editarFatura.Location = new System.Drawing.Point(-1, 259);
             this.editarFatura.Name = "editarFatura";
-            this.editarFatura.Size = new System.Drawing.Size(235, 84);
+            this.editarFatura.Size = new System.Drawing.Size(136, 47);
             this.editarFatura.TabIndex = 2;
             this.editarFatura.Text = "Editar Fatura";
+            this.editarFatura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.editarFatura.UseVisualStyleBackColor = true;
             this.editarFatura.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -84,13 +87,14 @@ namespace ProjetoFaturas
             // 
             this.lerFatura.FlatAppearance.BorderSize = 0;
             this.lerFatura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lerFatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lerFatura.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lerFatura.ForeColor = System.Drawing.Color.White;
-            this.lerFatura.Location = new System.Drawing.Point(-10, 270);
+            this.lerFatura.Location = new System.Drawing.Point(-1, 206);
             this.lerFatura.Name = "lerFatura";
-            this.lerFatura.Size = new System.Drawing.Size(235, 84);
+            this.lerFatura.Size = new System.Drawing.Size(136, 47);
             this.lerFatura.TabIndex = 1;
             this.lerFatura.Text = "Ler Fatura";
+            this.lerFatura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lerFatura.UseVisualStyleBackColor = true;
             this.lerFatura.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -98,13 +102,14 @@ namespace ProjetoFaturas
             // 
             this.novaFatura.FlatAppearance.BorderSize = 0;
             this.novaFatura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.novaFatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novaFatura.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.novaFatura.ForeColor = System.Drawing.Color.White;
-            this.novaFatura.Location = new System.Drawing.Point(-10, 148);
+            this.novaFatura.Location = new System.Drawing.Point(-1, 153);
             this.novaFatura.Name = "novaFatura";
-            this.novaFatura.Size = new System.Drawing.Size(235, 84);
+            this.novaFatura.Size = new System.Drawing.Size(136, 47);
             this.novaFatura.TabIndex = 0;
             this.novaFatura.Text = "Nova Fatura";
+            this.novaFatura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.novaFatura.UseVisualStyleBackColor = true;
             this.novaFatura.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -119,6 +124,7 @@ namespace ProjetoFaturas
             this.Name = "Painel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Outono - Faturação";
+            this.Load += new System.EventHandler(this.Painel_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

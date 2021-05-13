@@ -154,5 +154,10 @@ namespace ProjetoFaturas
         {
 
         }
+
+        private void novaFatura_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProjetoFaturas
 {
@@ -91,6 +92,17 @@ namespace ProjetoFaturas
                 Ler novaLer = new Ler();
                 nova.MdiParent = this;
                 nova.Show();
+            }
+        }
+
+        private void Painel_Load(object sender, EventArgs e)
+        {
+            foreach(Control ctrl in this.Controls)
+            {
+                if(ctrl is MdiClient)
+                {
+                    ctrl.BackColor = Color.White;
+                }
             }
         }
     }

@@ -146,7 +146,7 @@ namespace ProjetoFaturas
             this.Nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nome.Location = new System.Drawing.Point(17, 38);
             this.Nome.Name = "Nome";
-            this.Nome.Size = new System.Drawing.Size(554, 27);
+            this.Nome.Size = new System.Drawing.Size(649, 27);
             this.Nome.TabIndex = 8;
             this.Nome.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.Nome.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
@@ -156,7 +156,7 @@ namespace ProjetoFaturas
             this.Morada.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Morada.Location = new System.Drawing.Point(17, 97);
             this.Morada.Name = "Morada";
-            this.Morada.Size = new System.Drawing.Size(554, 27);
+            this.Morada.Size = new System.Drawing.Size(649, 27);
             this.Morada.TabIndex = 9;
             this.Morada.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
             // 
@@ -165,7 +165,7 @@ namespace ProjetoFaturas
             this.Telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Telefone.Location = new System.Drawing.Point(17, 152);
             this.Telefone.Name = "Telefone";
-            this.Telefone.Size = new System.Drawing.Size(554, 27);
+            this.Telefone.Size = new System.Drawing.Size(649, 27);
             this.Telefone.TabIndex = 10;
             this.Telefone.Validating += new System.ComponentModel.CancelEventHandler(this.textBox3_Validating);
             // 
@@ -175,7 +175,7 @@ namespace ProjetoFaturas
             this.Descricao.Location = new System.Drawing.Point(17, 207);
             this.Descricao.Multiline = true;
             this.Descricao.Name = "Descricao";
-            this.Descricao.Size = new System.Drawing.Size(554, 100);
+            this.Descricao.Size = new System.Drawing.Size(649, 100);
             this.Descricao.TabIndex = 11;
             this.Descricao.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
             // 
@@ -185,7 +185,7 @@ namespace ProjetoFaturas
             this.Equipamento.Location = new System.Drawing.Point(17, 335);
             this.Equipamento.Multiline = true;
             this.Equipamento.Name = "Equipamento";
-            this.Equipamento.Size = new System.Drawing.Size(554, 83);
+            this.Equipamento.Size = new System.Drawing.Size(649, 83);
             this.Equipamento.TabIndex = 12;
             // 
             // Password
@@ -193,7 +193,7 @@ namespace ProjetoFaturas
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Password.Location = new System.Drawing.Point(17, 446);
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(554, 27);
+            this.Password.Size = new System.Drawing.Size(649, 27);
             this.Password.TabIndex = 13;
             this.Password.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             this.Password.Validating += new System.ComponentModel.CancelEventHandler(this.textBox6_Validating);
@@ -203,7 +203,7 @@ namespace ProjetoFaturas
             this.Guito.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Guito.Location = new System.Drawing.Point(16, 557);
             this.Guito.Name = "Guito";
-            this.Guito.Size = new System.Drawing.Size(555, 27);
+            this.Guito.Size = new System.Drawing.Size(650, 27);
             this.Guito.TabIndex = 15;
             this.Guito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox8_KeyDown);
             this.Guito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
@@ -218,7 +218,7 @@ namespace ProjetoFaturas
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(16, 601);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(264, 59);
+            this.button1.Size = new System.Drawing.Size(323, 59);
             this.button1.TabIndex = 16;
             this.button1.Text = "Emitir";
             this.button1.UseVisualStyleBackColor = false;
@@ -231,9 +231,9 @@ namespace ProjetoFaturas
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(310, 601);
+            this.button2.Location = new System.Drawing.Point(345, 601);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(261, 59);
+            this.button2.Size = new System.Drawing.Size(321, 59);
             this.button2.TabIndex = 17;
             this.button2.Text = "Imprimir";
             this.button2.UseVisualStyleBackColor = false;
@@ -245,7 +245,7 @@ namespace ProjetoFaturas
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(17, 501);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(554, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(649, 27);
             this.dateTimePicker1.TabIndex = 18;
             this.dateTimePicker1.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker1_Validating);
             // 
@@ -260,7 +260,7 @@ namespace ProjetoFaturas
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(513, 0);
+            this.button3.Location = new System.Drawing.Point(587, -1);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 19;
@@ -273,7 +273,7 @@ namespace ProjetoFaturas
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(597, 684);
+            this.ClientSize = new System.Drawing.Size(678, 684);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button2);
@@ -296,6 +296,7 @@ namespace ProjetoFaturas
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "novaFatura";
             this.Text = "novaFatura";
+            this.Load += new System.EventHandler(this.novaFatura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
