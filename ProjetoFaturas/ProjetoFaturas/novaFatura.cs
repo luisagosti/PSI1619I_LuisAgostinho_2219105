@@ -95,6 +95,7 @@ namespace ProjetoFaturas
             {
                 errorProvider1.SetError(Telefone, "Este campo não pode ficar vazio");
             }
+
         }
 
         private void textBox4_Validating(object sender, CancelEventArgs e)
@@ -158,6 +159,23 @@ namespace ProjetoFaturas
         private void novaFatura_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Guito_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Telefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '+'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '+') && ((sender as TextBox).Text.IndexOf('+') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

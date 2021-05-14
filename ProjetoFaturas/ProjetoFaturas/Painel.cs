@@ -13,7 +13,6 @@ namespace ProjetoFaturas
 {
     public partial class Painel : Form
     {
-        string con = @"Server=tcp:devlabpm.westeurope.cloudapp.azure.com;Database=PSIM1619I_LuisAgostinho_2219105;User Id=PSIM1619I_LuisAgostinho_2219105;Password=6qA8C127";
         public Painel()
         {
             InitializeComponent();
@@ -34,12 +33,13 @@ namespace ProjetoFaturas
             if (aberto == false)
             {
                 novaFatura nova = new novaFatura();
-                Editar novaEditar = new Editar();
-                Ler novaLer = new Ler();
+                foreach (Form c in this.MdiChildren)
+                {
+                    c.Close();
+                }
                 nova.MdiParent = this;
-                novaEditar.Close();
-                novaLer.Close();
                 nova.Show();
+                nova.Location = new Point(0, 0);
             }
         }
 
@@ -63,36 +63,49 @@ namespace ProjetoFaturas
             if (aberto == false)
             {
                 Ler nova = new Ler();
-                novaFatura novaNova = new novaFatura();
-                Editar novaEditar = new Editar();
+                foreach (Form c in this.MdiChildren)
+                {
+                    c.Close();
+                }
                 nova.MdiParent = this;
-                novaNova.Close();
-                novaEditar.Close();
                 nova.Show();
+                nova.Location = new Point(0, 0);
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconn = new SqlConnection(con);
-            bool aberto = false;
-            foreach (Form f in Application.OpenForms)
+            Login login = new Login();
+            if(login.IsAdmin == "1")
             {
-                if (f.Text == "Editar")
+                bool aberto = false;
+                foreach (Form f in Application.OpenForms)
                 {
-                    aberto = true;
-                    f.BringToFront();
-                    break;
+                    if (f.Text == "Editar")
+                    {
+                        aberto = true;
+                        f.BringToFront();
+                        break;
+                    }
+                }
+                if (aberto == false)
+                {
+                    Editar nova = new Editar();
+                    foreach (Form c in this.MdiChildren)
+                    {
+                        c.Close();
+                    }
+                    nova.MdiParent = this;
+                    nova.Show();
+                    nova.Location = new Point(0, 0);
                 }
             }
-            if (aberto == false)
+            else
             {
-                Editar nova = new Editar();
-                novaFatura novaNova = new novaFatura();
-                Ler novaLer = new Ler();
-                nova.MdiParent = this;
-                nova.Show();
+                editarFatura.Visible = false;
+                editarFatura.Enabled = false;
             }
+            
         }
 
         private void Painel_Load(object sender, EventArgs e)
@@ -104,6 +117,7 @@ namespace ProjetoFaturas
                     ctrl.BackColor = Color.White;
                 }
             }
+            
         }
     }
 }

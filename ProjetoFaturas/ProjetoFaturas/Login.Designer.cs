@@ -45,6 +45,7 @@ namespace ProjetoFaturas
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(264, 27);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // User
             // 
@@ -70,7 +71,7 @@ namespace ProjetoFaturas
             // 
             // button_login
             // 
-            this.button_login.BackColor = System.Drawing.Color.SandyBrown;
+            this.button_login.BackColor = System.Drawing.Color.LightSalmon;
             this.button_login.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_login.FlatAppearance.BorderSize = 0;
             this.button_login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SandyBrown;
@@ -111,7 +112,7 @@ namespace ProjetoFaturas
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.SandyBrown;
+            this.button1.BackColor = System.Drawing.Color.LightSalmon;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SandyBrown;
@@ -150,14 +151,13 @@ namespace ProjetoFaturas
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label User;
         private System.Windows.Forms.Label Pass;
         private System.Windows.Forms.Button button_login;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        internal System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
 

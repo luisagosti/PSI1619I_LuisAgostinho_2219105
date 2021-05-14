@@ -11,9 +11,12 @@ using System.Data.SqlClient;
 
 namespace ProjetoFaturas
 {
+    
     public partial class Login : Form
     {
         public string UserID = "";
+        public string IsAdmin = "";
+        
 
         SqlConnection con;
         SqlCommand cmd;
@@ -46,6 +49,16 @@ namespace ProjetoFaturas
                     {
                         UserID = reader["UserId"].ToString();
                         result = "1";
+                        using (SqlCommand SelectCommand = new SqlCommand(cmd.ToString(), con))
+                        {
+                            con.Open();
+                            SelectCommand.Parameters.Add("@IsAdmin", SqlDbType.Char).Value = textBox1.Text;
+                            int i = (int)SelectCommand.ExecuteScalar();
+                            if (i > 0)
+                            {
+                                IsAdmin = "1";
+                            }
+                        }
                     }
                     else
                         result = "Invalid credentials";
@@ -84,6 +97,11 @@ namespace ProjetoFaturas
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

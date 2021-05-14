@@ -167,6 +167,7 @@ namespace ProjetoFaturas
             this.Telefone.Name = "Telefone";
             this.Telefone.Size = new System.Drawing.Size(649, 27);
             this.Telefone.TabIndex = 10;
+            this.Telefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Telefone_KeyPress);
             this.Telefone.Validating += new System.ComponentModel.CancelEventHandler(this.textBox3_Validating);
             // 
             // Descricao
@@ -205,13 +206,14 @@ namespace ProjetoFaturas
             this.Guito.Name = "Guito";
             this.Guito.Size = new System.Drawing.Size(650, 27);
             this.Guito.TabIndex = 15;
+            this.Guito.TextChanged += new System.EventHandler(this.Guito_TextChanged);
             this.Guito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox8_KeyDown);
             this.Guito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
             this.Guito.Validating += new System.ComponentModel.CancelEventHandler(this.textBox8_Validating);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.SandyBrown;
+            this.button1.BackColor = System.Drawing.Color.LightSalmon;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -226,7 +228,7 @@ namespace ProjetoFaturas
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.SandyBrown;
+            this.button2.BackColor = System.Drawing.Color.LightSalmon;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

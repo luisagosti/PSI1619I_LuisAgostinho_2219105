@@ -39,7 +39,7 @@ namespace ProjetoFaturas
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.SandyBrown;
+            this.panel1.BackColor = System.Drawing.Color.LightSalmon;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.editarFatura);
