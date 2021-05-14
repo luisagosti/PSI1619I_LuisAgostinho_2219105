@@ -15,7 +15,7 @@ namespace ProjetoFaturas
     public partial class Login : Form
     {
         public string UserID = "";
-        public string IsAdmin = "";
+        public bool IsAdmin;
         
 
         SqlConnection con;
@@ -32,7 +32,7 @@ namespace ProjetoFaturas
 
         }
 
-        private void button_login_Click(object sender, EventArgs e)
+        public void button_login_Click(object sender, EventArgs e)
         {
             String result = "";
             try
@@ -49,19 +49,15 @@ namespace ProjetoFaturas
                     {
                         UserID = reader["UserId"].ToString();
                         result = "1";
-                        using (SqlCommand SelectCommand = new SqlCommand(cmd.ToString(), con))
+                        if(textBox1.Text == "admin")
                         {
-                            con.Open();
-                            SelectCommand.Parameters.Add("@IsAdmin", SqlDbType.Char).Value = textBox1.Text;
-                            int i = (int)SelectCommand.ExecuteScalar();
-                            if (i > 0)
-                            {
-                                IsAdmin = "1";
-                            }
+                            IsAdmin = true;
                         }
                     }
                     else
+                    {
                         result = "Invalid credentials";
+                    }
                 }
                 else
                     MessageBox.Show(" Utilizador/Password errado.", " Erro! ", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -75,49 +75,43 @@ namespace ProjetoFaturas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            if(login.IsAdmin == "1")
+            bool aberto = false;
+            foreach (Form f in Application.OpenForms)
             {
-                bool aberto = false;
-                foreach (Form f in Application.OpenForms)
+                if (f.Text == "Editar")
                 {
-                    if (f.Text == "Editar")
-                    {
-                        aberto = true;
-                        f.BringToFront();
-                        break;
-                    }
-                }
-                if (aberto == false)
-                {
-                    Editar nova = new Editar();
-                    foreach (Form c in this.MdiChildren)
-                    {
-                        c.Close();
-                    }
-                    nova.MdiParent = this;
-                    nova.Show();
-                    nova.Location = new Point(0, 0);
+                    aberto = true;
+                    f.BringToFront();
+                    break;
                 }
             }
-            else
+            if (aberto == false)
             {
-                editarFatura.Visible = false;
-                editarFatura.Enabled = false;
+                Editar nova = new Editar();
+                foreach (Form c in this.MdiChildren)
+                {
+                    c.Close();
+                }
+                nova.MdiParent = this;
+                nova.Show();
+                nova.Location = new Point(0, 0);
             }
-            
         }
 
         private void Painel_Load(object sender, EventArgs e)
         {
-            foreach(Control ctrl in this.Controls)
+            foreach (Control ctrl in this.Controls)
             {
-                if(ctrl is MdiClient)
+                if (ctrl is MdiClient)
                 {
                     ctrl.BackColor = Color.White;
                 }
             }
-            
+            Login login = new Login();
+            if (login.IsAdmin == true)
+            {
+                editarFatura.Hide();
+            }
         }
     }
 }

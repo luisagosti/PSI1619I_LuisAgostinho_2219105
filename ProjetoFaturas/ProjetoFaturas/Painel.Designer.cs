@@ -135,7 +135,7 @@ namespace ProjetoFaturas
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button novaFatura;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button editarFatura;
         private System.Windows.Forms.Button lerFatura;
+        internal System.Windows.Forms.Button editarFatura;
     }
 }
