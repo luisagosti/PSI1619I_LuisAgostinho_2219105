@@ -56,7 +56,7 @@ namespace ProjetoFaturas
                     }
                     else
                     {
-                        result = "Invalid credentials";
+                        result = "Credenciais erradas";
                     }
                 }
                 else
@@ -101,3 +101,14 @@ namespace ProjetoFaturas
         }
     }
 }
+
+/*
+Sitações necessárias fazer ainda:
+    - Login com admin e user
+    - Editar mais do que uma vez (done)
+    - Design melhor
+    - Dar uma olhada na novaFatura porque acho que havia uma situação qualquer errada (Não havia situação errada mas estou a criar um form diferente)
+    - Situação de procurar onde basta colocar uma letra e ele procura tudo com isso
+    - Importar para PDF para o amigo decidir se quer imprimir
+    - Auto increment do numero da fatura no SQL - Não fazer auto increment
+*/

@@ -23,7 +23,7 @@ namespace ProjetoFaturas
         {
 
         }
-
+        //Editar o texto dentro das caixas da dataGrid
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             SqlConnection sqlconn = new SqlConnection(con);
@@ -43,7 +43,7 @@ namespace ProjetoFaturas
             }
             dataGridView1.DataSource = dt;
         }
-
+        //Dar Load dos dados da gridView
         private void Editar_Load(object sender, EventArgs e)
         {
             SqlConnection sqlconn = new SqlConnection(con);
@@ -56,31 +56,47 @@ namespace ProjetoFaturas
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
         }
-
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        //"Refresh" na tabela
+        void PopulateDataGridView()
         {
             using (SqlConnection sqlCon = new SqlConnection(con))
             {
                 sqlCon.Open();
-                SqlCommand sqlCmd = new SqlCommand("editar", sqlCon);
-                DataGridViewRow dgvRow = dataGridView1.CurrentRow;
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.AddWithValue("@Nome",dgvRow.Cells["Nome"].Value==DBNull.Value ? "":dgvRow.Cells["Nome"].Value.ToString());
-                sqlCmd.Parameters.AddWithValue("@Morada", dgvRow.Cells["Morada"].Value == DBNull.Value ? "" : dgvRow.Cells["Morada"].Value.ToString());
-                sqlCmd.Parameters.AddWithValue("@Telefone", Convert.ToInt32(dgvRow.Cells["Telefone"].Value == DBNull.Value ? "" : dgvRow.Cells["Telefone"].Value.ToString()));
-                sqlCmd.Parameters.AddWithValue("@Descricao", dgvRow.Cells["Descricao"].Value == DBNull.Value ? "" : dgvRow.Cells["Descricao"].Value.ToString());
-                sqlCmd.Parameters.AddWithValue("@Equipamento", dgvRow.Cells["Equipamento"].Value == DBNull.Value ? "" : dgvRow.Cells["Equipamento"].Value.ToString());
-                sqlCmd.Parameters.AddWithValue("@Password", dgvRow.Cells["Password"].Value == DBNull.Value ? "" : dgvRow.Cells["Password"].Value.ToString());
-                sqlCmd.Parameters.AddWithValue("@Data", Convert.ToDateTime(dgvRow.Cells["Data"].Value == DBNull.Value ? "" : dgvRow.Cells["Data"].Value.ToString()));
-                sqlCmd.Parameters.AddWithValue("@Montante", dgvRow.Cells["Montante"].Value == DBNull.Value ? "" : dgvRow.Cells["Montante"].Value.ToString());
-                sqlCmd.ExecuteNonQuery();
-                MessageBox.Show(" Editada com sucesso.", " Sucesso! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("select * from fatura order by Nome", sqlCon);
+                DataTable dt = new DataTable();
+                sqlDa.Fill(dt);
+                dataGridView1.DataSource = dt;
             }
         }
-
-        private void dataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        //Editar
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridView1.CurrentRow.Cells["Nome"].Value != DBNull.Value)
+            if(dataGridView1.CurrentRow != null)
+            {
+                using (SqlConnection sqlCon = new SqlConnection(con))
+                {
+                    sqlCon.Open();
+                    DataGridViewRow dgvRow = dataGridView1.CurrentRow;
+                    SqlCommand sqlCmd = new SqlCommand("editar", sqlCon);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("@Nome", dgvRow.Cells["Nome"].Value == DBNull.Value ? "" : dgvRow.Cells["Nome"].Value.ToString());
+                    sqlCmd.Parameters.AddWithValue("@Morada", dgvRow.Cells["Morada"].Value == DBNull.Value ? "" : dgvRow.Cells["Morada"].Value.ToString());
+                    sqlCmd.Parameters.AddWithValue("@Telefone", Convert.ToInt32(dgvRow.Cells["Telefone"].Value == DBNull.Value ? "" : dgvRow.Cells["Telefone"].Value.ToString()));
+                    sqlCmd.Parameters.AddWithValue("@Descricao", dgvRow.Cells["Descricao"].Value == DBNull.Value ? "" : dgvRow.Cells["Descricao"].Value.ToString());
+                    sqlCmd.Parameters.AddWithValue("@Equipamento", dgvRow.Cells["Equipamento"].Value == DBNull.Value ? "" : dgvRow.Cells["Equipamento"].Value.ToString());
+                    sqlCmd.Parameters.AddWithValue("@Password", dgvRow.Cells["Password"].Value == DBNull.Value ? "" : dgvRow.Cells["Password"].Value.ToString());
+                    sqlCmd.Parameters.AddWithValue("@Data", Convert.ToDateTime(dgvRow.Cells["Data"].Value == DBNull.Value ? "" : dgvRow.Cells["Data"].Value.ToString()));
+                    sqlCmd.Parameters.AddWithValue("@Montante", dgvRow.Cells["Montante"].Value == DBNull.Value ? "" : dgvRow.Cells["Montante"].Value.ToString());
+                    sqlCmd.ExecuteNonQuery();
+                    PopulateDataGridView();
+                    MessageBox.Show(" Editada com sucesso.", " Sucesso! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        //Apagar
+        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if (dataGridView1.CurrentRow.Cells["Nome"].Value != DBNull.Value)
             {
                 if (MessageBox.Show("Tem a certeza que pretende apagar?", "dataGridView", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -93,7 +109,11 @@ namespace ProjetoFaturas
                         sqlCmd.ExecuteNonQuery();
                     }
                 }
+                else
+                    e.Cancel = true;
             }
+            else
+                e.Cancel = true;
         }
     }
 }

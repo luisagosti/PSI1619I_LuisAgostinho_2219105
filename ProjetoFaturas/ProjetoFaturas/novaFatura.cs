@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using System.Reflection;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace ProjetoFaturas
 {
@@ -58,9 +62,13 @@ namespace ProjetoFaturas
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (Nome.Text == "" || Morada.Text == "" || Telefone.Text == "" || Descricao.Text == "" || Password.Text == "" || Guito.Text == "")
             {
-                //imprimir
+                MessageBox.Show(" Alguns campos não estão completos ou são inválidos.", " Erro! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
             }
         }
 
