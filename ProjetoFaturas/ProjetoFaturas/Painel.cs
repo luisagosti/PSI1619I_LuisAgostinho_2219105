@@ -23,7 +23,7 @@ namespace ProjetoFaturas
             bool aberto = false;
             foreach (Form f in Application.OpenForms)
             {
-                if (f.Text == "novaFatura")
+                if (f.Text == "novaFaturaEditada")
                 {
                     aberto = true;
                     f.BringToFront();
@@ -32,7 +32,7 @@ namespace ProjetoFaturas
             }
             if (aberto == false)
             {
-                novaFatura nova = new novaFatura();
+                novaFaturaEditada nova = new novaFaturaEditada();
                 foreach (Form c in this.MdiChildren)
                 {
                     c.Close();

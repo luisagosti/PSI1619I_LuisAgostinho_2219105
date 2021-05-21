@@ -21,7 +21,7 @@ namespace ProjetoFaturas
         private void Ler_Load(object sender, EventArgs e)
         {
              SqlConnection sqlconn = new SqlConnection(con);
-             string sqlquery = "select * from fatura order by Nome";
+             string sqlquery = "select distinct * from cliente, produtos order by nome";
              SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
              SqlDataAdapter sdr = new SqlDataAdapter(sqlcomm);
              sqlconn.Open();
@@ -39,14 +39,14 @@ namespace ProjetoFaturas
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             SqlConnection sqlconn = new SqlConnection(con);
-            string sqlquery = "select * from fatura order by Nome";
+            string sqlquery = "select * from cliente, produtos order by nome";
             SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
             sqlconn.Open();
             SqlDataAdapter sdr = new SqlDataAdapter(sqlcomm);
             DataTable dt = new DataTable();
             if (textBox1.Text.Length > 0)
             {
-                SqlDataAdapter sda = new SqlDataAdapter("select * from fatura where '" + textBox1.Text + "' in (Nome, Morada, Telefone, Descricao, Equipamento, Password, Montante) order by Nome", con);
+                SqlDataAdapter sda = new SqlDataAdapter("select * from cliente, produtos where '" + textBox1.Text + "' in (Id, Nome, Morada, Telefone, Descricao, Password, Montante) order by ID", con);
                 sda.Fill(dt);
             }
             else

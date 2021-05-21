@@ -38,6 +38,9 @@ namespace ProjetoFaturas
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Montante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -46,9 +49,6 @@ namespace ProjetoFaturas
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Montante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,6 +145,21 @@ namespace ProjetoFaturas
             this.dataGridView1.Size = new System.Drawing.Size(649, 223);
             this.dataGridView1.TabIndex = 28;
             // 
+            // Quantidade
+            // 
+            this.Quantidade.HeaderText = "Quantidade";
+            this.Quantidade.Name = "Quantidade";
+            // 
+            // Descricao
+            // 
+            this.Descricao.HeaderText = "Descrição";
+            this.Descricao.Name = "Descricao";
+            // 
+            // Montante
+            // 
+            this.Montante.HeaderText = "Montante";
+            this.Montante.Name = "Montante";
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,8 +203,10 @@ namespace ProjetoFaturas
             this.Guito.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Guito.Location = new System.Drawing.Point(16, 569);
             this.Guito.Name = "Guito";
+            this.Guito.ReadOnly = true;
             this.Guito.Size = new System.Drawing.Size(650, 27);
             this.Guito.TabIndex = 33;
+            this.Guito.TextChanged += new System.EventHandler(this.Guito_TextChanged);
             // 
             // Password
             // 
@@ -206,9 +223,9 @@ namespace ProjetoFaturas
             this.label8.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label8.Location = new System.Drawing.Point(14, 543);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 22);
+            this.label8.Size = new System.Drawing.Size(143, 22);
             this.label8.TabIndex = 31;
-            this.label8.Text = "Total:";
+            this.label8.Text = "Total (Com IVA):";
             // 
             // label7
             // 
@@ -231,21 +248,6 @@ namespace ProjetoFaturas
             this.label6.Size = new System.Drawing.Size(94, 22);
             this.label6.TabIndex = 29;
             this.label6.Text = "Password:";
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.HeaderText = "Quantidade";
-            this.Quantidade.Name = "Quantidade";
-            // 
-            // Descricao
-            // 
-            this.Descricao.HeaderText = "Descrição";
-            this.Descricao.Name = "Descricao";
-            // 
-            // Montante
-            // 
-            this.Montante.HeaderText = "Montante";
-            this.Montante.Name = "Montante";
             // 
             // novaFaturaEditada
             // 
@@ -290,7 +292,6 @@ namespace ProjetoFaturas
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -302,5 +303,6 @@ namespace ProjetoFaturas
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Montante;
+        internal System.Windows.Forms.DataGridView dataGridView1;
     }
 }
