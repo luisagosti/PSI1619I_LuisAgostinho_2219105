@@ -21,7 +21,7 @@ namespace ProjetoFaturas
         private void Ler_Load(object sender, EventArgs e)
         {
              SqlConnection sqlconn = new SqlConnection(con);
-             string sqlquery = "select distinct * from cliente, produtos order by nome";
+             string sqlquery = "select IDcliente as 'ID cliente', Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos";
              SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
              SqlDataAdapter sdr = new SqlDataAdapter(sqlcomm);
              sqlconn.Open();
@@ -39,14 +39,14 @@ namespace ProjetoFaturas
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             SqlConnection sqlconn = new SqlConnection(con);
-            string sqlquery = "select * from cliente, produtos order by nome";
+            string sqlquery = "select IDcliente as 'ID cliente', Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos";
             SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
             sqlconn.Open();
             SqlDataAdapter sdr = new SqlDataAdapter(sqlcomm);
             DataTable dt = new DataTable();
             if (textBox1.Text.Length > 0)
             {
-                SqlDataAdapter sda = new SqlDataAdapter("select * from cliente, produtos where '" + textBox1.Text + "' in (Id, Nome, Morada, Telefone, Descricao, Password, Montante) order by ID", con);
+                SqlDataAdapter sda = new SqlDataAdapter("select IDcliente as 'ID cliente', Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos where '" + textBox1.Text + "' in (Id, Nome, Morada, Telefone, Descricao, Password, Montante) order by ID", con);
                 sda.Fill(dt);
             }
             else

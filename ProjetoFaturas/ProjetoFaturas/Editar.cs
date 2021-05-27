@@ -27,14 +27,14 @@ namespace ProjetoFaturas
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             SqlConnection sqlconn = new SqlConnection(con);
-            string sqlquery = "select * from fatura order by Nome";
+            string sqlquery = "select IDcliente as 'ID cliente', Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos";
             SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
             sqlconn.Open();
             SqlDataAdapter sdr = new SqlDataAdapter(sqlcomm);
             DataTable dt = new DataTable();
             if (textBox1.Text.Length > 0)
             {
-                SqlDataAdapter sda = new SqlDataAdapter("select * from fatura where '" + textBox1.Text + "' in (Nome, Morada, Telefone, Descricao, Equipamento, Password, Montante) order by Nome", con);
+                SqlDataAdapter sda = new SqlDataAdapter("select IDcliente as 'ID cliente', Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos where '" + textBox1.Text + "' in (Nome, Morada, Telefone, Descricao, Equipamento, Password, Montante) order by Nome", con);
                 sda.Fill(dt);
             }
             else
@@ -47,7 +47,7 @@ namespace ProjetoFaturas
         private void Editar_Load(object sender, EventArgs e)
         {
             SqlConnection sqlconn = new SqlConnection(con);
-            string sqlquery = "select * from fatura order by Nome";
+            string sqlquery = "select Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos";
             SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
             SqlDataAdapter sdr = new SqlDataAdapter(sqlcomm);
             sqlconn.Open();
@@ -62,7 +62,7 @@ namespace ProjetoFaturas
             using (SqlConnection sqlCon = new SqlConnection(con))
             {
                 sqlCon.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("select * from fatura order by Nome", sqlCon);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("select Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos", sqlCon);
                 DataTable dt = new DataTable();
                 sqlDa.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -83,10 +83,11 @@ namespace ProjetoFaturas
                     sqlCmd.Parameters.AddWithValue("@Morada", dgvRow.Cells["Morada"].Value == DBNull.Value ? "" : dgvRow.Cells["Morada"].Value.ToString());
                     sqlCmd.Parameters.AddWithValue("@Telefone", Convert.ToInt32(dgvRow.Cells["Telefone"].Value == DBNull.Value ? "" : dgvRow.Cells["Telefone"].Value.ToString()));
                     sqlCmd.Parameters.AddWithValue("@Descricao", dgvRow.Cells["Descricao"].Value == DBNull.Value ? "" : dgvRow.Cells["Descricao"].Value.ToString());
-                    sqlCmd.Parameters.AddWithValue("@Equipamento", dgvRow.Cells["Equipamento"].Value == DBNull.Value ? "" : dgvRow.Cells["Equipamento"].Value.ToString());
                     sqlCmd.Parameters.AddWithValue("@Password", dgvRow.Cells["Password"].Value == DBNull.Value ? "" : dgvRow.Cells["Password"].Value.ToString());
-                    sqlCmd.Parameters.AddWithValue("@Data", Convert.ToDateTime(dgvRow.Cells["Data"].Value == DBNull.Value ? "" : dgvRow.Cells["Data"].Value.ToString()));
+                    sqlCmd.Parameters.AddWithValue("@data_pedido", Convert.ToDateTime(dgvRow.Cells["data_pedido"].Value == DBNull.Value ? "" : dgvRow.Cells["data_pedido"].Value.ToString()));
                     sqlCmd.Parameters.AddWithValue("@Montante", dgvRow.Cells["Montante"].Value == DBNull.Value ? "" : dgvRow.Cells["Montante"].Value.ToString());
+                    sqlCmd.Parameters.AddWithValue("@Total", dgvRow.Cells["Total"].Value == DBNull.Value ? "" : dgvRow.Cells["Total"].Value.ToString());
+                    sqlCmd.Parameters.AddWithValue("@Quantidade", dgvRow.Cells["Quantidade"].Value == DBNull.Value ? "" : dgvRow.Cells["Quantidade"].Value.ToString());
                     sqlCmd.ExecuteNonQuery();
                     PopulateDataGridView();
                     MessageBox.Show(" Editada com sucesso.", " Sucesso! ", MessageBoxButtons.OK, MessageBoxIcon.Information);

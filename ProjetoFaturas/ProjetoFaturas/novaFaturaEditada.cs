@@ -41,22 +41,20 @@ namespace ProjetoFaturas
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    SqlCommand sqlCmd_cliente = new SqlCommand("fatura", sqlCon);
-                    sqlCmd_cliente.CommandType = CommandType.StoredProcedure;
-                    sqlCmd_cliente.Parameters.AddWithValue("@Nome", Nome.Text.Trim());
-                    sqlCmd_cliente.Parameters.AddWithValue("@Morada", Morada.Text.Trim());
-                    sqlCmd_cliente.Parameters.AddWithValue("@Telefone", Telefone.Text.Trim());
-                    sqlCmd_cliente.Parameters.AddWithValue("@Password", Password.Text.Trim());
-                    SqlCommand SqlCmd_produtos = new SqlCommand("vendas", sqlCon);
-                    SqlCmd_produtos.CommandType = CommandType.StoredProcedure;
+                    SqlCommand sqlCmd = new SqlCommand("fatura", sqlCon);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("@Nome", Nome.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Morada", Morada.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Telefone", Telefone.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Password", Password.Text.Trim());
                     for (int i = 0; i < dataGridView1.Rows.Count-1; ++i)
                     {
-                        SqlCmd_produtos.Parameters.Add("@Quantidade", SqlDbType.Int).Value = dataGridView1.Rows[i].Cells[0].Value;
-                        SqlCmd_produtos.Parameters.Add("@Descricao", SqlDbType.VarChar).Value = dataGridView1.Rows[i].Cells[1].Value;
-                        SqlCmd_produtos.Parameters.Add("@Montante", SqlDbType.Money).Value = dataGridView1.Rows[i].Cells[2].Value;
-                        SqlCmd_produtos.ExecuteNonQuery();
+                        sqlCmd.Parameters.Add("@Quantidade", SqlDbType.Int).Value = dataGridView1.Rows[i].Cells[0].Value;
+                        sqlCmd.Parameters.Add("@Descricao", SqlDbType.VarChar).Value = dataGridView1.Rows[i].Cells[1].Value;
+                        sqlCmd.Parameters.Add("@Montante", SqlDbType.Money).Value = dataGridView1.Rows[i].Cells[2].Value;
+                        sqlCmd.ExecuteNonQuery();
                     }
-                    sqlCmd_cliente.ExecuteNonQuery();
+                    sqlCmd.ExecuteNonQuery();
                     MessageBox.Show(" Emitida com sucesso.", " Sucesso! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }

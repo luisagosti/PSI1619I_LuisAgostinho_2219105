@@ -100,17 +100,18 @@ namespace ProjetoFaturas
 
         private void Painel_Load(object sender, EventArgs e)
         {
+            Login Login = new Login();
+            if (Login.IsAdmin == false)
+            {
+                editarFatura.Enabled = false;
+                editarFatura.Hide();
+            }
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is MdiClient)
                 {
                     ctrl.BackColor = Color.White;
                 }
-            }
-            Login login = new Login();
-            if (login.IsAdmin == true)
-            {
-                editarFatura.Hide();
             }
         }
     }

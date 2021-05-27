@@ -16,7 +16,12 @@ namespace ProjetoFaturas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Painel());
+            Login login = new Login();
+            login.ShowDialog();
+            if (login.login == true)
+            {
+                Application.Run(new Painel());
+            }
         }
     }
 }
