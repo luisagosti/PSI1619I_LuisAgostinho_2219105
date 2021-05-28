@@ -18,7 +18,7 @@ namespace ProjetoFaturas
             Application.SetCompatibleTextRenderingDefault(false);
             Login login = new Login();
             login.ShowDialog();
-            if (login.login == true)
+            if (Login.login == true)
             {
                 Application.Run(new Painel());
             }

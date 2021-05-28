@@ -43,16 +43,15 @@ namespace ProjetoFaturas
                     sqlCon.Open();
                     SqlCommand sqlCmd = new SqlCommand("fatura", sqlCon);
                     sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("@Nome", Nome.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Morada", Morada.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Telefone", Telefone.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Password", Password.Text.Trim());
+                    sqlCmd.Parameters.Add("@Nome", SqlDbType.VarChar, 50).Value = Nome.Text;
+                    sqlCmd.Parameters.Add("@Morada", SqlDbType.VarChar, 50).Value = Morada.Text;
+                    sqlCmd.Parameters.Add("@Telefone", SqlDbType.VarChar, 50).Value = Telefone.Text;
+                    sqlCmd.Parameters.Add("@Password", SqlDbType.VarChar, 50).Value = Password.Text;
                     for (int i = 0; i < dataGridView1.Rows.Count-1; ++i)
                     {
                         sqlCmd.Parameters.Add("@Quantidade", SqlDbType.Int).Value = dataGridView1.Rows[i].Cells[0].Value;
                         sqlCmd.Parameters.Add("@Descricao", SqlDbType.VarChar).Value = dataGridView1.Rows[i].Cells[1].Value;
                         sqlCmd.Parameters.Add("@Montante", SqlDbType.Money).Value = dataGridView1.Rows[i].Cells[2].Value;
-                        sqlCmd.ExecuteNonQuery();
                     }
                     sqlCmd.ExecuteNonQuery();
                     MessageBox.Show(" Emitida com sucesso.", " Sucesso! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -61,11 +60,15 @@ namespace ProjetoFaturas
             }
         }
 
-        private void Guito_TextChanged(object sender, EventArgs e)
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; ++i)
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                Guito.Text = Convert.ToString(Convert.ToDecimal(dataGridView1.Rows[i].Cells[0].Value)* Convert.ToDecimal(dataGridView1.Rows[i].Cells[2].Value));
+                row.Cells[dataGridView1.Columns["totalsIVA"].Index].Value = (Convert.ToDecimal(row.Cells[dataGridView1.Columns["Quantidade"].Index].Value) * Convert.ToDecimal(row.Cells[dataGridView1.Columns["Montante"].Index].Value));
+            }
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Cells[dataGridView1.Columns["totalcIVA"].Index].Value = ((Convert.ToDouble(row.Cells[dataGridView1.Columns["TotalsIva"].Index].Value) * 0.23) + Convert.ToDouble(row.Cells[dataGridView1.Columns["TotalsIva"].Index].Value));
             }
         }
     }

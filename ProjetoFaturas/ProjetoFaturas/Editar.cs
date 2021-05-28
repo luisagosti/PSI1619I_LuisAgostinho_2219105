@@ -81,7 +81,7 @@ namespace ProjetoFaturas
                     sqlCmd.CommandType = CommandType.StoredProcedure;
                     sqlCmd.Parameters.AddWithValue("@Nome", dgvRow.Cells["Nome"].Value == DBNull.Value ? "" : dgvRow.Cells["Nome"].Value.ToString());
                     sqlCmd.Parameters.AddWithValue("@Morada", dgvRow.Cells["Morada"].Value == DBNull.Value ? "" : dgvRow.Cells["Morada"].Value.ToString());
-                    sqlCmd.Parameters.AddWithValue("@Telefone", Convert.ToInt32(dgvRow.Cells["Telefone"].Value == DBNull.Value ? "" : dgvRow.Cells["Telefone"].Value.ToString()));
+                    sqlCmd.Parameters.AddWithValue("@Telefone", dgvRow.Cells["Telefone"].Value == DBNull.Value ? "" : dgvRow.Cells["Telefone"].Value.ToString());
                     sqlCmd.Parameters.AddWithValue("@Descricao", dgvRow.Cells["Descricao"].Value == DBNull.Value ? "" : dgvRow.Cells["Descricao"].Value.ToString());
                     sqlCmd.Parameters.AddWithValue("@Password", dgvRow.Cells["Password"].Value == DBNull.Value ? "" : dgvRow.Cells["Password"].Value.ToString());
                     sqlCmd.Parameters.AddWithValue("@data_pedido", Convert.ToDateTime(dgvRow.Cells["data_pedido"].Value == DBNull.Value ? "" : dgvRow.Cells["data_pedido"].Value.ToString()));

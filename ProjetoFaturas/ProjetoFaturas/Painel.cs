@@ -100,11 +100,14 @@ namespace ProjetoFaturas
 
         private void Painel_Load(object sender, EventArgs e)
         {
-            Login Login = new Login();
+
             if (Login.IsAdmin == false)
             {
                 editarFatura.Enabled = false;
-                editarFatura.Hide();
+            }
+            else
+            {
+                editarFatura.Enabled = true;
             }
             foreach (Control ctrl in this.Controls)
             {
