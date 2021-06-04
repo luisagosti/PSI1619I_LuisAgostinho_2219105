@@ -93,8 +93,8 @@ namespace ProjetoFaturas
 /*
 Sitações necessárias fazer ainda:
     - Design melhor
-    - Situação de procurar onde basta colocar uma letra e ele procura tudo com isso
     - Importar para PDF para o amigo decidir se quer imprimir
-    - Auto increment do numero da fatura no SQL - Não fazer auto increment
-    - Tratar do novaFaturaEditada
+    - Situação de procurar onde basta colocar uma letra e ele procura tudo com isso - SQL
+    - Tratar da novaFaturaEditada - SQL
+    - Tratar do Ler - SQL
 */

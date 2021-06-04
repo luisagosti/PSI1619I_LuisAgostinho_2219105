@@ -85,3 +85,4 @@ C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoF
 C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\bin\Debug\itextsharp.dll
 C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\bin\Debug\itextsharp.xml
 C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\obj\Debug\ProjetoFaturas.novaFaturaEditada.resources
+C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\obj\Debug\ProjetoFaturas.csproj.ResolveComReference.cache

@@ -48,7 +48,7 @@ namespace ProjetoFaturas
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Montante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalsIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalcIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +63,7 @@ namespace ProjetoFaturas
             this.button3.TabIndex = 27;
             this.button3.Text = "Apagar campos";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Telefone
             // 
@@ -141,7 +142,7 @@ namespace ProjetoFaturas
             this.Descricao,
             this.Montante,
             this.TotalsIVA,
-            this.TotalcIVA});
+            this.Total});
             this.dataGridView1.Location = new System.Drawing.Point(17, 207);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(649, 280);
@@ -170,6 +171,7 @@ namespace ProjetoFaturas
             this.button2.TabIndex = 35;
             this.button2.Text = "Imprimir";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -237,11 +239,11 @@ namespace ProjetoFaturas
             this.TotalsIVA.Name = "TotalsIVA";
             this.TotalsIVA.ReadOnly = true;
             // 
-            // TotalcIVA
+            // Total
             // 
-            this.TotalcIVA.HeaderText = "Total c/ IVA";
-            this.TotalcIVA.Name = "TotalcIVA";
-            this.TotalcIVA.ReadOnly = true;
+            this.Total.HeaderText = "Total c/ IVA";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // novaFaturaEditada
             // 
@@ -279,7 +281,6 @@ namespace ProjetoFaturas
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox Telefone;
         private System.Windows.Forms.TextBox Morada;
-        private System.Windows.Forms.TextBox Nome;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -291,10 +292,11 @@ namespace ProjetoFaturas
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         internal System.Windows.Forms.DataGridView dataGridView1;
+        internal System.Windows.Forms.TextBox Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Montante;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalsIVA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalcIVA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

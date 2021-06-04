@@ -21,8 +21,8 @@ namespace ProjetoFaturas
         private void Ler_Load(object sender, EventArgs e)
         {
              SqlConnection sqlconn = new SqlConnection(con);
-             string sqlquery = "select IDcliente as 'ID cliente', Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos";
-             SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
+            string sqlquery = "select * from cliente join produtos on cliente.IDcliente = produtos.cliente_ID";
+            SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
              SqlDataAdapter sdr = new SqlDataAdapter(sqlcomm);
              sqlconn.Open();
              DataTable dt = new DataTable();
@@ -39,21 +39,33 @@ namespace ProjetoFaturas
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             SqlConnection sqlconn = new SqlConnection(con);
-            string sqlquery = "select IDcliente as 'ID cliente', Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos";
+            string sqlquery = "select * from cliente join produtos on cliente.IDcliente = produtos.cliente_ID";
             SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
             sqlconn.Open();
             SqlDataAdapter sdr = new SqlDataAdapter(sqlcomm);
             DataTable dt = new DataTable();
             if (textBox1.Text.Length > 0)
             {
-                SqlDataAdapter sda = new SqlDataAdapter("select IDcliente as 'ID cliente', Nome, Morada, Telefone, Password, Quantidade, Descricao, data_pedido as 'Data', Montante, Total = Montante*Quantidade from cliente, pedido, produtos where '" + textBox1.Text + "' in (Id, Nome, Morada, Telefone, Descricao, Password, Montante) order by ID", con);
-                sda.Fill(dt);
+                string query = "select * from cliente join produtos on cliente.IDcliente = produtos.cliente_ID";
+                query += " WHERE Nome LIKE '%' + @procura + '%'";
+                query += " OR Morada LIKE '%' + @procura + '%'";
+                query += " OR Telefone LIKE '%' + @procura + '%'";
+                query += " OR Password LIKE '%' + @procura + '%'";
+                query += " OR Montante LIKE '%' + @procura + '%'";
+                query += " OR Quantidade LIKE '%' + @procura + '%'";
+                query += " OR Descricao LIKE '%' + @procura + '%'";
+                query += " OR @SearchTerm = ''";
+                sqlcomm.Parameters.AddWithValue("@procura", textBox1.Text.Trim());
+                using (SqlDataAdapter sda = new SqlDataAdapter(sqlcomm))
+                {
+                    sda.Fill(dt);
+                }
             }
             else
             {
                 sdr.Fill(dt);
             }
-            dataGridView1.DataSource = dt;
+            //dataGridView1.DataSource = dt;
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)

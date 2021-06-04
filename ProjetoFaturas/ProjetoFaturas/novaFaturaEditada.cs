@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.Office.Core;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ProjetoFaturas
 {
@@ -32,17 +34,16 @@ namespace ProjetoFaturas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Nome.Text == "" || Morada.Text == "" || Telefone.Text == "" || Password.Text == "")
+            if (Nome.Text == "" || Morada.Text == "" || Telefone.Text == "")
             {
                 MessageBox.Show(" Alguns campos obrigatórios não estão preenchidos.", " Erro! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+                string sqlQuery = "insert into cliente (Nome, Morada, Telefone, Password) values (@Nome, @Morada, @Telefone, @Password) insert into produtos (Quantidade, Descricao, Montante) values(@Quantidade, @Descricao, @Montante) insert into pedido (Total) values(@Total)";
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
-                    sqlCon.Open();
-                    SqlCommand sqlCmd = new SqlCommand("fatura", sqlCon);
-                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand sqlCmd = new SqlCommand(sqlQuery, sqlCon);
                     sqlCmd.Parameters.Add("@Nome", SqlDbType.VarChar, 50).Value = Nome.Text;
                     sqlCmd.Parameters.Add("@Morada", SqlDbType.VarChar, 50).Value = Morada.Text;
                     sqlCmd.Parameters.Add("@Telefone", SqlDbType.VarChar, 50).Value = Telefone.Text;
@@ -52,7 +53,10 @@ namespace ProjetoFaturas
                         sqlCmd.Parameters.Add("@Quantidade", SqlDbType.Int).Value = dataGridView1.Rows[i].Cells[0].Value;
                         sqlCmd.Parameters.Add("@Descricao", SqlDbType.VarChar).Value = dataGridView1.Rows[i].Cells[1].Value;
                         sqlCmd.Parameters.Add("@Montante", SqlDbType.Money).Value = dataGridView1.Rows[i].Cells[2].Value;
+                        sqlCmd.Parameters.Add("@Total", SqlDbType.Money).Value = dataGridView1.Rows[i].Cells[3].Value;
                     }
+                    SqlDataAdapter sdr = new SqlDataAdapter(sqlCmd);
+                    sqlCon.Open();
                     sqlCmd.ExecuteNonQuery();
                     MessageBox.Show(" Emitida com sucesso.", " Sucesso! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -64,12 +68,46 @@ namespace ProjetoFaturas
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[dataGridView1.Columns["totalsIVA"].Index].Value = (Convert.ToDecimal(row.Cells[dataGridView1.Columns["Quantidade"].Index].Value) * Convert.ToDecimal(row.Cells[dataGridView1.Columns["Montante"].Index].Value));
+                row.Cells[dataGridView1.Columns["totalsIVA"].Index].Value = (Convert.ToDouble(row.Cells[dataGridView1.Columns["Quantidade"].Index].Value) * Convert.ToDouble(row.Cells[dataGridView1.Columns["Montante"].Index].Value));
             }
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[dataGridView1.Columns["totalcIVA"].Index].Value = ((Convert.ToDouble(row.Cells[dataGridView1.Columns["TotalsIva"].Index].Value) * 0.23) + Convert.ToDouble(row.Cells[dataGridView1.Columns["TotalsIva"].Index].Value));
+                row.Cells[dataGridView1.Columns["Total"].Index].Value = ((Convert.ToDouble(row.Cells[dataGridView1.Columns["TotalsIva"].Index].Value) * 0.23) + Convert.ToDouble(row.Cells[dataGridView1.Columns["TotalsIva"].Index].Value));
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Excel.Workbooks myExcelWorkbooks;
+            //Excel.Workbook myExcelWorkbook;
+            //object misValue = System.Reflection.Missing.Value;
+            //Excel.Application xlapp = new Excel.Application();
+            //xlapp.Visible = true;
+            //myExcelWorkbooks = xlapp.Workbooks;
+            //String fileName = "C:\\Users\\2219105\\source\\repos\\luisagosti\\PSI1619I_LuisAgostinho_2219105\\ProjetoFaturas\\ProjetoFaturas\\fatura.xlsx";
+            //myExcelWorkbook = myExcelWorkbooks.Open(fileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
+            //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
+            //xlapp.get_Range("B13", misValue).Formula = Nome.Text;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                    {
+                        (control as TextBox).Clear();
+                        this.dataGridView1.DataSource = null;
+                        this.dataGridView1.Rows.Clear();
+                    }
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
         }
     }
 }
