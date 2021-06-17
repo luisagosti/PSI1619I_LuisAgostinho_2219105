@@ -76,9 +76,3 @@ namespace ProjetoFaturas
         }
     }
 }
-
-/*
-Sitações necessárias fazer ainda:
-    - Importar para PDF para o amigo decidir se quer imprimir
-    - Tratar do Editar - SQL
-*/
