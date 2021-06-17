@@ -71,7 +71,6 @@ C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoF
 C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\obj\Debug\ProjetoFaturas.csprojAssemblyReference.cache
 C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\obj\Debug\ProjetoFaturas.Login.resources
-C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\obj\Debug\ProjetoFaturas.novaFatura.resources
 C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\obj\Debug\ProjetoFaturas.Properties.Resources.resources
 C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\obj\Debug\ProjetoFaturas.csproj.GenerateResource.cache
 C:\Users\2219105\Source\Repos\luisagosti\PSI1619I_LuisAgostinho_2219105\ProjetoFaturas\ProjetoFaturas\obj\Debug\ProjetoFaturas.csproj.CoreCompileInputs.cache

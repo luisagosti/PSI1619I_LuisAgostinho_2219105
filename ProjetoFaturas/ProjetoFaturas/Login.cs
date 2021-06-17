@@ -16,12 +16,8 @@ namespace ProjetoFaturas
     {
         static public bool IsAdmin = false;
         static public bool login = false;
-
-
-
         SqlConnection con;
         SqlCommand cmd;
-        //public static string stringConnection = @"Server=tcp:devlabpm.westeurope.cloudapp.azure.com;Database=PSIM1619I_LuisAgostinho_2219105;User Id=PSIM1619I_LuisAgostinho_2219105;Password=6qA8C127";
         public Login()
         {
             InitializeComponent();
@@ -73,28 +69,16 @@ namespace ProjetoFaturas
                 con.Close();
             }
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            con.Close();
             this.Close();
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
 
 /*
 Sitações necessárias fazer ainda:
-    - Design melhor
     - Importar para PDF para o amigo decidir se quer imprimir
-    - Situação de procurar onde basta colocar uma letra e ele procura tudo com isso - SQL
-    - Tratar da novaFaturaEditada - SQL
-    - Tratar do Ler - SQL
+    - Tratar do Editar - SQL
 */

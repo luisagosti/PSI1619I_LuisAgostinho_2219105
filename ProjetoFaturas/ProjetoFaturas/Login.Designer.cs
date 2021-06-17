@@ -45,7 +45,6 @@ namespace ProjetoFaturas
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(264, 27);
             this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // User
             // 
@@ -108,7 +107,6 @@ namespace ProjetoFaturas
             this.label2.TabIndex = 6;
             this.label2.Text = "Inicio de sessão";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 

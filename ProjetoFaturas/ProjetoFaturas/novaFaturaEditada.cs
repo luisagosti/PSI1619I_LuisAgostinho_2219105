@@ -22,11 +22,6 @@ namespace ProjetoFaturas
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void novaFaturaEditada_Load(object sender, EventArgs e)
         {
 
@@ -66,7 +61,9 @@ namespace ProjetoFaturas
 
                     }
                     SqlCommand sqlIDproduto = new SqlCommand("select max(IDprodutos) from produtos", sqlCon);
-                    int IDprodutos = Convert.ToInt32(sqlIDproduto.ExecuteScalar());
+                    var IDprodutos = sqlIDproduto.ExecuteScalar();
+                    if (!(IDprodutos is DBNull))
+                        IDprodutos = Convert.ToInt32(sqlIDproduto.ExecuteScalar());
                     cmdPedido.Parameters.Add("@IDprodutos", SqlDbType.Int).Value = IDprodutos;
 
                     int ID_cliente = Convert.ToInt32(sqlID.ExecuteScalar());
@@ -95,16 +92,7 @@ namespace ProjetoFaturas
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Excel.Workbooks myExcelWorkbooks;
-            //Excel.Workbook myExcelWorkbook;
-            //object misValue = System.Reflection.Missing.Value;
-            //Excel.Application xlapp = new Excel.Application();
-            //xlapp.Visible = true;
-            //myExcelWorkbooks = xlapp.Workbooks;
-            //String fileName = "C:\\Users\\2219105\\source\\repos\\luisagosti\\PSI1619I_LuisAgostinho_2219105\\ProjetoFaturas\\ProjetoFaturas\\fatura.xlsx";
-            //myExcelWorkbook = myExcelWorkbooks.Open(fileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
-            //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
-            //xlapp.get_Range("B13", misValue).Formula = Nome.Text;
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -133,30 +121,3 @@ namespace ProjetoFaturas
         }
     }
 }
-
-
-
-
-
-
-
-
-//string query = "select max(IDcliente) from cliente";
-//string query2 = "select SCOPE_IDENTITY()";
-
-//SqlCommand sqlCmd = new SqlCommand(sqlQuery, sqlCon);
-//sqlCmd.Parameters.Add("@Nome", SqlDbType.VarChar, 50).Value = Nome.Text;
-//sqlCmd.Parameters.Add("@Morada", SqlDbType.VarChar, 50).Value = Morada.Text;
-//sqlCmd.Parameters.Add("@Telefone", SqlDbType.VarChar, 50).Value = Telefone.Text;
-//sqlCmd.Parameters.Add("@Password", SqlDbType.VarChar, 50).Value = Password.Text;
-//for (int i = 0; i < dataGridView1.Rows.Count - 1; ++i)
-//{
-//    sqlCmd.Parameters.Add("@Quantidade", SqlDbType.Int).Value = dataGridView1.Rows[i].Cells[0].Value;
-//    sqlCmd.Parameters.Add("@Descricao", SqlDbType.VarChar).Value = dataGridView1.Rows[i].Cells[1].Value;
-//    sqlCmd.Parameters.Add("@Montante", SqlDbType.Money).Value = dataGridView1.Rows[i].Cells[2].Value;
-//    sqlCmd.Parameters.Add("@Total", SqlDbType.Money).Value = dataGridView1.Rows[i].Cells[3].Value;
-//}
-//SqlDataAdapter sdr = new SqlDataAdapter(sqlCmd);
-//sqlCon.Open();
-//sqlCmd.ExecuteNonQuery();
-//MessageBox.Show(" Emitida com sucesso.", " Sucesso! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
